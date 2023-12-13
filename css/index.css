@@ -183,7 +183,7 @@ nav ul a li {
 }
 
 .project {
-  width: 400px;
+  width: 500px;
   margin: 10px;
   overflow: hidden;
   position: relative;
@@ -293,11 +293,11 @@ div > article > img {
 }
 
 .second-modal {
-  width: 800px;
+  width: 400px;
 }
 
 .second-modal img {
-  width: 150px;
+  width: 45%;
   height: auto;
 }
 
