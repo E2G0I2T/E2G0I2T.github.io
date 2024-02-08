@@ -29,16 +29,23 @@ header {
 nav {
   margin: 0 auto 0;
 }
+
 nav ul {
   line-height: 40px;
   display: flex;
 }
+
 nav ul a {
   padding: 0 10px;
+  color: white;
+  border-bottom: 3px solid transparent;
+  transition: border-bottom 0.2s ease, color 0.2s ease;
 }
 
-nav ul a.selected li {
+nav ul a.selected {
   border-bottom: 3px solid orange;
+  color: orange;
+  border-radius: 5%;
 }
 
 nav ul a:not(.selected) li {
@@ -184,10 +191,11 @@ nav ul a li {
 }
 
 .project {
-  width: 500px;
+  width: 250px;
   margin: 10px;
   overflow: hidden;
   position: relative;
+  border-radius: 10%;
 }
 
 .project-image {
@@ -290,7 +298,11 @@ div > article > img {
 }
 
 .first-modal {
-  height: 80vh;
+  width: 800px;
+}
+
+.first-modal img {
+  width: 180px;
 }
 
 .second-modal {
@@ -312,6 +324,34 @@ div > article > img {
 
 .fourth-modal video {
   width: 200px;
+}
+
+.fifth-modal {
+  height: 80vh;
+}
+
+.sixth-modal {
+  width: 600px;
+}
+
+.sixth-modal img {
+  width: 500px;
+}
+
+.seventh-modal {
+  width: 600px;
+}
+
+.seventh-modal img {
+  width: 450px;
+}
+
+.eighth-modal {
+  width: 600px;
+}
+
+.eighth-modal img {
+  width: 300px;
 }
 
 .modal-contents p {
@@ -340,14 +380,14 @@ div > article > img {
 }
 
 .sns {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   display: flex;
 }
 
 .sns img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 10px;
   display: block;
   background-color: #fff;

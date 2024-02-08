@@ -1,45 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // 메뉴 관련 초기화
   const navLinks = document.querySelectorAll("nav ul a");
 
-  // 현재 선택된 메뉴가 없을 때 'home'을 선택
-  let selectedLink = null;
+  // 초기에 'HOME' 메뉴 선택
+  setInitialSelectedMenu();
 
   navLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      // 현재 선택된 메뉴에 'selected' 클래스 추가
-      navLinks.forEach(navLink => navLink.classList.remove("selected"));
-      link.classList.add("selected");
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
 
-      // 현재 선택된 메뉴 업데이트
-      selectedLink = link;
+      // 모든 메뉴 항목에서 'selected' 클래스 제거
+      navLinks.forEach(navLink => {
+        navLink.classList.remove("selected");
+      });
 
-      // 딜레이를 주고 스타일이 변경되도록 함
-      setTimeout(() => {
-        if (selectedLink) {
-          selectedLink.querySelector("li").style.borderBottomColor = "orange";
-        }
-      }, 200); // 0.2초 딜레이
+      // 현재 클릭된 메뉴 항목에 'selected' 클래스 추가
+      this.classList.add("selected");
+
+      // 선택된 섹션으로 스크롤
+      const href = this.getAttribute('href');
+      document.querySelector(href).scrollIntoView({
+        behavior: 'smooth'
+      });
     });
   });
 
-  // 초기에 선택된 메뉴가 없다면 'home'을 선택
-  if (!selectedLink) {
+  // 초기 선택된 메뉴 설정 함수
+  function setInitialSelectedMenu() {
     const homeLink = document.querySelector('nav ul a[href="#home"]');
-    homeLink.classList.add("selected");
+    if (homeLink && !homeLink.classList.contains("selected")) {
+      homeLink.classList.add("selected");
+      // 여기서 직접 스타일을 적용하는 대신, CSS에서 'selected' 클래스에 대한 스타일을 정의하세요.
+    }
   }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+  // 텍스트 변경 관련 초기화
   const welcomeText = document.querySelector(".welcome h1");
-
-  // 변경될 텍스트 목록
-  const textList = [
-    "WELCOME TO MY PAGE!",
-    "안녕하세요! 환영합니다!",
-    "ようこそ！!"
-    // 원하는 만큼 텍스트를 추가할 수 있습니다.
-  ];
-
+  const textList = ["WELCOME TO MY PAGE!", "안녕하세요! 환영합니다!", "ようこそ！!"];
   let currentIndex = 0;
 
   function changeText() {
@@ -47,7 +44,5 @@ document.addEventListener("DOMContentLoaded", function () {
     currentIndex = (currentIndex + 1) % textList.length;
   }
 
-  // 1초마다 텍스트 변경
   setInterval(changeText, 1000);
 });
-
